@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LUXE NOIR - Premium Luxury Brand</title>
+    <title>LUXE NOIR</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800;900&family=Cinzel:wght@400;600;700;800;900&display=swap" rel="stylesheet">
@@ -29,19 +29,12 @@
                 <span class="logo-dot"></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#collection" class="nav-link">Collection</a></li>
-                <li><a href="#featured" class="nav-link">Featured</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#testimonials" class="nav-link">Reviews</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li class="menu-theme-toggle"><button class="theme-toggle menu-theme-btn" id="themeToggleMenu" title="Toggle Theme">🌙</button></li>
+                <li><a href="#home" class="nav-link">MENU</a></li>
+                <li><a href="#about" class="nav-link">ABOUT US</a></li>
+                <li><a href="#collection" class="nav-link">COLLECTIONS</a></li>
+                <li><a href="#contact" class="nav-link">CONTACT US</a></li>
             </ul>
             <div class="nav-right">
-                <div class="search-box" id="searchBox">
-                    <input type="text" placeholder="Search products..." id="searchInput">
-                    <span class="search-icon">🔍</span>
-                </div>
                 <div class="nav-icons">
                     <button class="icon-btn wishlist-btn" id="wishlistBtn" title="Wishlist">
                         <span class="icon">❤️</span>
@@ -51,7 +44,6 @@
                         <span class="icon">🛒</span>
                         <span class="count" id="cartCount">0</span>
                     </button>
-                    <button class="theme-toggle desktop-theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
                 </div>
                 <button class="menu-toggle" id="menuToggle">
                     <span></span>
@@ -96,53 +88,67 @@
 
     <!-- ======== HERO SECTION ======== -->
     <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-visual">
-                <div class="hero-image" id="heroImage">
-                    <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&h=600&fit=crop&q=80" alt="Luxury Watch Hero" class="hero-img">
-                </div>
-                <div class="floating-cards">
-                    <div class="float-card card-1">
-                        <p class="price-tag">$2,499</p>
-                    </div>
-                    <div class="float-card card-2">
-                        <p class="premium-tag">Premium Edition</p>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-text">
-                <h1 class="hero-title" id="heroTitle">
-                    <span class="word">Timeless</span>
-                    <span class="word">Elegance</span>
-                    <span class="word">Redefined</span>
-                </h1>
-                <p class="hero-subtitle">Quality stuff that lasts. Built for people who care about what they buy.</p>
-                <div class="hero-buttons">
-                    <button class="btn btn-primary btn-large" id="exploreBtn"><a href="#collection" class="nav-link">Explore Collection</a></button>
-                    <button class="btn btn-secondary btn-large">Watch Video</button>
-                </div>
-                <div class="hero-stats">
-                    <div class="hero-stat-item">
-                        <div class="hero-stat-number" data-number="250K">0</div>
-                        <div class="hero-stat-label">Customers</div>
-                    </div>
-                    <div class="hero-stat-item">
-                        <div class="hero-stat-number" data-number="45">0</div>
-                        <div class="hero-stat-label">Years</div>
-                    </div>
-                    <div class="hero-stat-item">
-                        <div class="hero-stat-number" data-number="1200">0</div>
-                        <div class="hero-stat-label">Products</div>
-                    </div>
-                    <div class="hero-stat-item">
-                        <div class="hero-stat-number" data-number="98">0</div>
-                        <div class="hero-stat-label">Satisfaction</div>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-decorative-top-left">
+            <svg viewBox="0 0 100 100" class="decorative-circle">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.5"/>
+            </svg>
         </div>
-        <div class="scroll-indicator">
-            <div class="scroll-dot"></div>
+        <div class="hero-decorative-center">
+            <svg viewBox="0 0 100 100" class="decorative-circle">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+                <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                <circle cx="50" cy="50" r="25" fill="none" stroke="currentColor" stroke-width="1" opacity="0.1"/>
+                <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.4"/>
+            </svg>
+        </div>
+        <div class="hero-decorative-center-2">
+            <svg viewBox="0 0 100 100" class="decorative-circle">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.12"/>
+                <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.35"/>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title-new">
+                    <span class="hero-title-main">Luxury Fashion</span>
+                    <span class="hero-title-brand">LUXE NOIR</span>
+                </h1>
+                <p class="hero-description">Experience timeless elegance with our curated collection of premium fashion. Each piece is crafted with meticulous attention to detail, embodying sophistication and luxury that transcends trends.</p>
+                <div class="hero-decorative-bottom-left">
+                    <svg viewBox="0 0 100 100" class="decorative-circle">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.5"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="hero-visual-new">
+                <div class="hero-frame-wrapper hero-frame-wrapper-left">
+                    <div class="frame-dots frame-dots-top">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="hero-frame hero-frame-left">
+                        <img src="https://images.unsplash.com/photo-1594633313593-bab3825d0caf?w=400&h=600&fit=crop&q=80" alt="Luxury Fashion Model" class="frame-image">
+                    </div>
+                    <div class="frame-dots frame-dots-bottom">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div class="hero-frame-wrapper hero-frame-wrapper-right">
+                    <div class="frame-dots frame-dots-top">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="hero-frame hero-frame-right">
+                        <img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=600&fit=crop&q=80" alt="Luxury Jewelry Collection" class="frame-image">
+                    </div>
+                    <div class="frame-dots frame-dots-bottom">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -165,12 +171,21 @@
                 <div class="collection-image">
                     <img src="https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=400&h=400&fit=crop&q=80" alt="Luxury Collection">
                     <div class="collection-overlay">
-                        <button class="btn btn-primary">Explore</button>
+                        <button class="btn btn-primary">View Capsule</button>
                     </div>
                 </div>
                 <div class="collection-content">
+                    <div class="collection-meta">
+                        <span class="collection-tag">Signature Line</span>
+                        <span class="collection-number">No. 01</span>
+                    </div>
                     <h3>Luxury Series</h3>
                     <p class="collection-desc">Made with care</p>
+                    <div class="collection-divider"></div>
+                    <div class="collection-cta">
+                        <span class="collection-link">Discover the atelier</span>
+                        <span class="collection-arrow">→</span>
+                    </div>
                 </div>
             </div>
 
@@ -178,12 +193,21 @@
                 <div class="collection-image">
                     <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=400&h=400&fit=crop&q=80" alt="Modern Collection" onerror="this.onerror=null;this.src='https://picsum.photos/seed/modern-watch/400/400'">
                     <div class="collection-overlay">
-                        <button class="btn btn-primary">Explore</button>
+                        <button class="btn btn-primary">View Capsule</button>
                     </div>
                 </div>
                 <div class="collection-content">
+                    <div class="collection-meta">
+                        <span class="collection-tag">Avant-Garde Capsule</span>
+                        <span class="collection-number">No. 02</span>
+                    </div>
                     <h3>Modern Edge</h3>
                     <p class="collection-desc">Modern and clean</p>
+                    <div class="collection-divider"></div>
+                    <div class="collection-cta">
+                        <span class="collection-link">Experience the silhouette</span>
+                        <span class="collection-arrow">→</span>
+                    </div>
                 </div>
             </div>
 
@@ -191,12 +215,21 @@
                 <div class="collection-image">
                     <img src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop&q=80" alt="Classic Collection">
                     <div class="collection-overlay">
-                        <button class="btn btn-primary">Explore</button>
+                        <button class="btn btn-primary">View Capsule</button>
                     </div>
                 </div>
                 <div class="collection-content">
+                    <div class="collection-meta">
+                        <span class="collection-tag">Heritage Vault</span>
+                        <span class="collection-number">No. 03</span>
+                    </div>
                     <h3>Classic Essence</h3>
                     <p class="collection-desc">Classic designs</p>
+                    <div class="collection-divider"></div>
+                    <div class="collection-cta">
+                        <span class="collection-link">Revisit the legacy</span>
+                        <span class="collection-arrow">→</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,7 +253,7 @@
         <div class="products-grid" id="productsGrid">
             <div class="product-card">
                 <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&q=80" alt="Elegance Watch" onerror="this.onerror=null; this.src='https://picsum.photos/seed/watch/400/400'">
+                    <img src="https://images.unsplash.com/photo-1622434641406-a158123450f9?w=400&h=400&fit=crop&q=80" alt="Elegance Watch" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&q=80'">
                     <div class="product-badge">-24%</div>
                 </div>
                 <div class="product-info">
@@ -429,46 +462,66 @@
 
     <!-- ======== ABOUT SECTION ======== -->
     <section id="about" class="about">
-        <div class="about-container">
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=500&h=500&fit=crop&q=80" alt="About LUXE NOIR">
-                <div class="about-badge">Est. 1980</div>
-            </div>
-            <div class="about-content">
-                <h2 class="section-title">About LUXE NOIR</h2>
-                <p>Started in 1980, we've been making good stuff for a while now. We try to keep quality high and prices reasonable.</p>
-                <p>We think good products should last and look nice. Everything we sell is made by people who know what they're doing. No shortcuts, just solid work.</p>
-                <div class="about-features">
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <div>
-                            <h4>Good Materials</h4>
-                            <p>We use quality stuff, not cheap alternatives</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <div>
-                            <h4>Solid Work</h4>
-                            <p>Made by people who've been doing this for years</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <div>
-                            <h4>Warranty Included</h4>
-                            <p>If something breaks, we'll fix it</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-icon">✓</span>
-                        <div>
-                            <h4>Eco-Friendly</h4>
-                            <p>We try to keep things green when possible</p>
-                        </div>
-                    </div>
+        <div class="about-hero">
+            <div class="about-badge">About Us</div>
+            <h2 class="about-title">Crafting Excellence</h2>
+            <p class="about-subtitle">Since 1980</p>
+            <p class="about-description">We are dedicated to creating timeless luxury fashion and jewelry that embodies sophistication, elegance, and unparalleled craftsmanship. Each piece is meticulously crafted to perfection.</p>
+            
+            <!-- About Content -->
+            <div class="about-content-text">
+                <div class="about-content-item">
+                    <div class="about-item-number">01</div>
+                    <div class="about-item-divider"></div>
+                    <h3 class="about-content-title">Premium Materials</h3>
+                    <p class="about-content-para">We source only the finest materials from around the world, ensuring every piece meets our exacting standards of quality and luxury.</p>
                 </div>
-                <button class="btn btn-primary">Learn More</button>
+                <div class="about-content-item">
+                    <div class="about-item-number">02</div>
+                    <div class="about-item-divider"></div>
+                    <h3 class="about-content-title">Master Craftsmanship</h3>
+                    <p class="about-content-para">Our artisans bring decades of experience, creating each piece with meticulous attention to detail and timeless elegance.</p>
+                </div>
+                <div class="about-content-item">
+                    <div class="about-item-number">03</div>
+                    <div class="about-item-divider"></div>
+                    <h3 class="about-content-title">Lifetime Warranty</h3>
+                    <p class="about-content-para">Every purchase comes with our comprehensive warranty, reflecting our confidence in the enduring quality of our creations.</p>
+                </div>
+                <div class="about-content-item">
+                    <div class="about-item-number">04</div>
+                    <div class="about-item-divider"></div>
+                    <h3 class="about-content-title">Sustainable Luxury</h3>
+                    <p class="about-content-para">We are committed to ethical practices and sustainable sourcing, ensuring luxury that respects both people and planet.</p>
+                </div>
+            </div>
+            
+            <!-- Decorative Elements -->
+            <div class="about-decorative-elements">
+                <div class="about-decorative-circle" style="top: 8%; left: 10%;">
+                    <svg viewBox="0 0 100 100" class="decorative-circle-small">
+                        <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="1" opacity="0.2"/>
+                        <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.3"/>
+                    </svg>
+                </div>
+                <div class="about-decorative-circle" style="top: 15%; right: 12%;">
+                    <svg viewBox="0 0 100 100" class="decorative-circle-small">
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+                        <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.25"/>
+                    </svg>
+                </div>
+                <div class="about-decorative-circle" style="bottom: 20%; left: 8%;">
+                    <svg viewBox="0 0 100 100" class="decorative-circle-small">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="1" opacity="0.18"/>
+                        <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.28"/>
+                    </svg>
+                </div>
+                <div class="about-decorative-circle" style="bottom: 15%; right: 10%;">
+                    <svg viewBox="0 0 100 100" class="decorative-circle-small">
+                        <circle cx="50" cy="50" r="38" fill="none" stroke="currentColor" stroke-width="1" opacity="0.16"/>
+                        <circle cx="50" cy="50" r="5" fill="currentColor" opacity="0.22"/>
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
@@ -482,41 +535,212 @@
 
     <!-- ======== TESTIMONIALS ======== -->
     <section id="testimonials" class="testimonials">
-        <div class="section-header">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <p class="section-desc">What people are saying</p>
+        <div class="testimonials-hero">
+            <div class="testimonials-badge">Testimonials</div>
+            <h2 class="testimonials-title">Trusted by leaders</h2>
+            <p class="testimonials-subtitle">from various industries</p>
+            <p class="testimonials-description">Learn why professionals trust our solutions to complete their customer journeys.</p>
+            
+            <!-- Profile Images arranged around -->
+            <div class="testimonials-profiles">
+                <div class="profile-image" style="top: 5%; left: 8%;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 12%; left: 15%;">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 8%; right: 20%;">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 15%; right: 12%;">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 20%; right: 25%;">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 25%; left: 5%;">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="bottom: 20%; left: 10%;">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="bottom: 15%; left: 18%;">
+                    <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="bottom: 25%; right: 15%;">
+                    <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="bottom: 18%; right: 8%;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 50%; left: 3%;">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+                <div class="profile-image" style="top: 45%; right: 5%;">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&q=80" alt="Professional">
+                    <div class="profile-line"></div>
+                </div>
+            </div>
         </div>
-        <div class="testimonials-grid" id="testimonialsGrid">
-            <div class="testimonial-card">
-                <div class="testimonial-rating">★★★★★</div>
-                <p class="testimonial-text">"Really solid products. Everything I've bought has been worth it."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">A</div>
-                    <div class="author-info">
-                        <h4>Alexandra Sterling</h4>
-                        <p>Fashion Influencer</p>
+
+        <!-- Success Stories Section -->
+        <div class="success-stories-section" id="successStoriesSection">
+            <h2 class="success-stories-title">Words of praise from others about our presence.</h2>
+            <div class="success-stories-wrapper">
+                <!-- Top Row - Scrolls Left -->
+                <div class="story-row story-row-top">
+                    <div class="story-row-inner">
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Their ability to capture our brand essence in every project is unparalleled - an invaluable creative collaborator.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&q=80" alt="Isabella Rodriguez" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Isabella Rodriguez</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Creative geniuses who listen, understand, and craft captivating visuals - an agency that truly understands our needs.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&q=80" alt="Gabrielle Williams" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Gabrielle Williams</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Exceeded our expectations with innovative designs that brought our vision to life - a truly remarkable creative agency.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&q=80" alt="Samantha Johnson" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Samantha Johnson</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Their ability to capture our brand essence in every project is unparalleled - an invaluable creative collaborator.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop&q=80" alt="Isabella Rodriguez" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Isabella Rodriguez</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Creative geniuses who listen, understand, and craft captivating visuals - an agency that truly understands our needs.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&h=60&fit=crop&q=80" alt="Gabrielle Williams" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Gabrielle Williams</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Exceeded our expectations with innovative designs that brought our vision to life - a truly remarkable creative agency.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop&q=80" alt="Samantha Johnson" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Samantha Johnson</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-rating">★★★★★</div>
-                <p class="testimonial-text">"Good quality stuff. They pay attention to the details that matter."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <h4>Marcus Johnson</h4>
-                        <p>CEO, Luxury Ventures</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-rating">★★★★★</div>
-                <p class="testimonial-text">"Well made products. I'd tell my friends to check them out."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">I</div>
-                    <div class="author-info">
-                        <h4>Isabella Romano</h4>
-                        <p>Art Collector</p>
+                
+                <!-- Bottom Row - Scrolls Right -->
+                <div class="story-row story-row-bottom">
+                    <div class="story-row-inner">
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">From concept to execution, their creativity knows no bounds - a game-changer for our brand's success.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&h=60&fit=crop&q=80" alt="Natalie Martinez" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Natalie Martinez</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">A refreshing and imaginative agency that consistently delivers exceptional results - highly recommended for any project.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=60&h=60&fit=crop&q=80" alt="Victoria Thompson" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Victoria Thompson</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Their team's artistic flair and strategic approach resulted in remarkable campaigns - a reliable creative partner.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&q=80" alt="John Peter" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>John Peter</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Duplicate for seamless loop -->
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">From concept to execution, their creativity knows no bounds - a game-changer for our brand's success.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=60&h=60&fit=crop&q=80" alt="Natalie Martinez" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Natalie Martinez</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">A refreshing and imaginative agency that consistently delivers exceptional results - highly recommended for any project.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=60&h=60&fit=crop&q=80" alt="Victoria Thompson" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>Victoria Thompson</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="success-story-card">
+                            <div class="story-quote-icon">"</div>
+                            <p class="story-text">Their team's artistic flair and strategic approach resulted in remarkable campaigns - a reliable creative partner.</p>
+                            <div class="story-author">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&q=80" alt="John Peter" class="story-avatar">
+                                <div class="story-author-info">
+                                    <h4>John Peter</h4>
+                                    <p>CEO and Co-founder of ABC Company</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -578,9 +802,9 @@
             <div class="footer-section footer-contact">
                 <h4>Contact</h4>
                 <div class="contact-info">
-                    <p><span class="contact-icon">📞</span> +1 (555) 123-4567</p>
-                    <p><span class="contact-icon">📧</span> hello@luxenoir.com</p>
-                    <p><span class="contact-icon">📍</span> New York, USA</p>
+                    <p><span class="contact-icon">📞</span> +91 8839624792 </p>
+                    <p><span class="contact-icon">📧</span> adityasuryawanshi470@gmail.com.com</p>
+                    <p><span class="contact-icon">📍</span> Bhopal, Madhya Pradesh, INDIA</p>
                 </div>
             </div>
         </div>

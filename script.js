@@ -119,6 +119,8 @@ window.addEventListener("load", () => {
   setTimeout(() => {
     preloader.style.opacity = "0"
     preloader.style.pointerEvents = "none"
+    // Trigger hero images animation after preloader
+    document.body.classList.add("preloader-removed")
   }, 2500)
 })
 
@@ -286,9 +288,10 @@ function addToWishlist(productId) {
     state.wishlist.push(productId)
     localStorage.setItem("wishlist", JSON.stringify(state.wishlist))
     updateWishlistCount()
+    updateWishlistButtons()
     showNotification("Added to wishlist!")
   } else {
-    showNotification("Already in wishlist!")
+    removeFromWishlist(productId)
   }
 }
 
@@ -296,7 +299,25 @@ function removeFromWishlist(productId) {
   state.wishlist = state.wishlist.filter((id) => id !== productId)
   localStorage.setItem("wishlist", JSON.stringify(state.wishlist))
   updateWishlistCount()
+  updateWishlistButtons()
   showNotification("Removed from wishlist!")
+}
+
+function updateWishlistButtons() {
+  document.querySelectorAll('.wishlist-btn-sm').forEach(btn => {
+    const onclickAttr = btn.getAttribute('onclick')
+    if (onclickAttr) {
+      const match = onclickAttr.match(/addToWishlist\((\d+)\)/)
+      if (match) {
+        const productId = parseInt(match[1])
+        if (state.wishlist.includes(productId)) {
+          btn.classList.add('active')
+        } else {
+          btn.classList.remove('active')
+        }
+      }
+    }
+  })
 }
 
 // Make functions globally accessible for onclick handlers
@@ -360,6 +381,7 @@ function renderProducts() {
   productsGrid.innerHTML = ""
 
   state.products.forEach((product, index) => {
+    const isInWishlist = state.wishlist.includes(product.id)
     const productCard = document.createElement("div")
     productCard.className = "product-card"
     productCard.innerHTML = `
@@ -381,7 +403,7 @@ function renderProducts() {
         </div>
         <div class="product-actions">
           <button class="action-btn" onclick="addToCart(${product.id})">Add Cart</button>
-          <button class="wishlist-btn-sm" onclick="addToWishlist(${product.id})">❤️</button>
+          <button class="wishlist-btn-sm ${isInWishlist ? 'active' : ''}" onclick="addToWishlist(${product.id})">❤️</button>
         </div>
       </div>
     `
@@ -402,64 +424,8 @@ function renderProducts() {
   })
 }
 
-// ============ RENDER TESTIMONIALS ============
-
-function renderTestimonials() {
-  const testimonialsGrid = document.getElementById("testimonialsGrid")
-  if (!testimonialsGrid) return
-  
-  testimonialsGrid.innerHTML = ""
-
-  state.testimonials.forEach((testimonial) => {
-    const testimonialCard = document.createElement("div")
-    testimonialCard.className = "testimonial-card"
-    testimonialCard.innerHTML = `
-      <div class="testimonial-rating">
-        ${"★".repeat(testimonial.rating)}
-      </div>
-      <p class="testimonial-text">"${testimonial.text}"</p>
-      <div class="testimonial-author">
-        <div class="author-avatar">${testimonial.name.charAt(0)}</div>
-        <div class="author-info">
-          <h4>${testimonial.name}</h4>
-          <p>${testimonial.position}</p>
-        </div>
-      </div>
-    `
-    // Set initial state for animation
-    testimonialCard.style.opacity = "0"
-    testimonialCard.style.transform = "translateY(30px) scale(0.95)"
-    testimonialsGrid.appendChild(testimonialCard)
-  })
-  
-  // Re-trigger GSAP animations after rendering
-  setTimeout(() => {
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      // Kill existing animations first
-      gsap.killTweensOf(".testimonial-card")
-      
-      gsap.to(".testimonial-card", {
-        scrollTrigger: {
-          trigger: ".testimonials",
-          start: "top 70%",
-          toggleActions: "play none none none",
-        },
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        stagger: 0.15,
-        duration: 0.8,
-        ease: "back.out(1.2)",
-      })
-    } else {
-      // Fallback if GSAP not available - make visible immediately
-      document.querySelectorAll(".testimonial-card").forEach((card) => {
-        card.style.opacity = "1"
-        card.style.transform = "translateY(0) scale(1)"
-      })
-    }
-  }, 100)
-}
+// ============ TESTIMONIALS AUTO-SCROLL ============
+// Success stories section is now always visible, no button needed
 
 // ============ FILTER PRODUCTS ============
 
@@ -614,7 +580,20 @@ if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
   })
 }
 
-// Testimonial cards scroll animations are handled in renderTestimonials function
+// Testimonials section animations
+if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+  gsap.to(".testimonials-hero", {
+    scrollTrigger: {
+      trigger: ".testimonials",
+      start: "top 70%",
+      toggleActions: "play none none none",
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+    ease: "power3.out",
+  })
+}
 
 // About section animations
 if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -908,6 +887,83 @@ function initMobileMenu() {
   })
 }
 
+// ============ COLLECTION PARALLAX HOVER ============
+
+function initCollectionParallaxHover() {
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  const hasFinePointer = window.matchMedia("(pointer: fine)").matches
+
+  if (prefersReducedMotion || !hasFinePointer) return
+
+  const collectionItems = document.querySelectorAll(".collection-item")
+  if (!collectionItems.length) return
+
+  collectionItems.forEach((item) => {
+    const imageWrapper = item.querySelector(".collection-image")
+    const image = item.querySelector(".collection-image img")
+    const content = item.querySelector(".collection-content")
+    let animationId = null
+    let bounds = null
+
+    const clamp = (value, min, max) => Math.max(min, Math.min(max, value))
+
+    const resetTransforms = () => {
+      item.style.transform = ""
+      if (imageWrapper) imageWrapper.style.transform = ""
+      if (image) image.style.transform = ""
+      if (content) content.style.transform = ""
+    }
+
+    const updateTransforms = (xRatio, yRatio) => {
+      const rotateX = (0.5 - yRatio) * 14
+      const rotateY = (xRatio - 0.5) * 16
+      const translateX = (xRatio - 0.5) * 24
+      const translateY = (yRatio - 0.5) * 24
+
+      item.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`
+
+      if (imageWrapper) {
+        imageWrapper.style.transform = `translateX(${translateX * 0.45}px) translateY(${translateY * 0.45}px) scale(1.02)`
+      }
+
+      if (image) {
+        image.style.transform = `translateX(${translateX * -0.4}px) translateY(${translateY * -0.6}px) scale(1.08)`
+      }
+
+      if (content) {
+        content.style.transform = `translateX(${translateX * -0.2}px) translateY(${translateY * -0.2}px)`
+      }
+    }
+
+    const handlePointerMove = (event) => {
+      if (!bounds) bounds = item.getBoundingClientRect()
+      const xRatio = clamp((event.clientX - bounds.left) / bounds.width, -0.25, 1.25)
+      const yRatio = clamp((event.clientY - bounds.top) / bounds.height, -0.25, 1.25)
+
+      cancelAnimationFrame(animationId)
+      animationId = requestAnimationFrame(() => updateTransforms(xRatio, yRatio))
+    }
+
+    const handlePointerEnter = () => {
+      bounds = item.getBoundingClientRect()
+      item.classList.add("is-hovered")
+    }
+
+    const handlePointerLeave = () => {
+      item.classList.remove("is-hovered")
+      cancelAnimationFrame(animationId)
+      animationId = requestAnimationFrame(() => {
+        resetTransforms()
+      })
+      bounds = null
+    }
+
+    item.addEventListener("pointerenter", handlePointerEnter)
+    item.addEventListener("pointermove", handlePointerMove)
+    item.addEventListener("pointerleave", handlePointerLeave)
+  })
+}
+
 // ============ CHECKOUT ============
 
 document.getElementById("checkoutBtn")?.addEventListener("click", () => {
@@ -929,7 +985,15 @@ document.addEventListener("DOMContentLoaded", () => {
   updateCartCount()
   updateWishlistCount()
   updateWishlistModal()
+  updateWishlistButtons()
   initMobileMenu()
+  
+  // Initialize testimonials hero animation
+  const testimonialsHero = document.querySelector(".testimonials-hero")
+  if (testimonialsHero) {
+    testimonialsHero.style.opacity = "0"
+    testimonialsHero.style.transform = "translateY(30px)"
+  }
 
   // Initialize mobile menu as closed
   const navLinksContainer = document.getElementById("navLinks")
@@ -967,6 +1031,8 @@ document.addEventListener("DOMContentLoaded", () => {
     el.style.opacity = "0"
     el.style.transform = "translateY(50px) scale(0.9)"
   })
+
+  initCollectionParallaxHover()
   
   // Testimonials already present in DOM (static)
   
