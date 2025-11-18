@@ -164,7 +164,6 @@ if (themeToggleMenu) {
 const navbar = document.getElementById("navbar")
 const navLinks = document.querySelectorAll(".nav-link")
 const navLinksContainer = document.getElementById("navLinks")
-const menuToggle = document.getElementById("menuToggle")
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 50) {
@@ -179,15 +178,6 @@ navLinks.forEach((link) => {
     navLinks.forEach((l) => l.classList.remove("active"))
     e.target.classList.add("active")
     
-    // Close mobile menu when link is clicked
-    if (window.innerWidth <= 1024 && navLinksContainer) {
-      const menuToggleBtn = document.getElementById("menuToggle")
-      navLinksContainer.style.display = "none"
-      navLinksContainer.classList.remove("mobile-menu-open")
-      if (menuToggleBtn) {
-        menuToggleBtn.classList.remove("active")
-      }
-    }
   })
 })
 
@@ -809,84 +799,6 @@ document.querySelector(".cta-form")?.addEventListener("submit", (e) => {
   }
 })
 
-// ============ MOBILE MENU - NEW SIMPLE IMPLEMENTATION ============
-
-function initMobileMenu() {
-  const menuBtn = document.getElementById("menuToggle")
-  const navMenu = document.getElementById("navLinks")
-  
-  if (!menuBtn || !navMenu) {
-    console.error("Menu elements not found")
-    return
-  }
-  
-  // Initialize: hide menu on mobile
-  function hideMenu() {
-    navMenu.style.display = "none"
-    navMenu.classList.remove("menu-open")
-    menuBtn.classList.remove("active")
-  }
-  
-  function showMenu() {
-    navMenu.style.display = "flex"
-    navMenu.classList.add("menu-open")
-    menuBtn.classList.add("active")
-  }
-  
-  function isMenuOpen() {
-    return navMenu.classList.contains("menu-open") || 
-           navMenu.style.display === "flex" ||
-           getComputedStyle(navMenu).display === "flex"
-  }
-  
-  // Set initial state
-  if (window.innerWidth <= 1024) {
-    hideMenu()
-  }
-  
-  // Toggle menu on button click
-  menuBtn.addEventListener("click", function(e) {
-    e.preventDefault()
-    e.stopPropagation()
-    
-    if (isMenuOpen()) {
-      hideMenu()
-    } else {
-      showMenu()
-    }
-  })
-  
-  // Close menu when clicking nav links
-  const navLinks = navMenu.querySelectorAll(".nav-link")
-  navLinks.forEach(link => {
-    link.addEventListener("click", function() {
-      if (window.innerWidth <= 1024) {
-        hideMenu()
-      }
-    })
-  })
-  
-  // Close menu when clicking outside
-  document.addEventListener("click", function(e) {
-    if (window.innerWidth <= 1024 && isMenuOpen()) {
-      if (!navMenu.contains(e.target) && !menuBtn.contains(e.target)) {
-        hideMenu()
-      }
-    }
-  })
-  
-  // Handle window resize
-  window.addEventListener("resize", function() {
-    if (window.innerWidth > 1024) {
-      navMenu.style.display = ""
-      navMenu.classList.remove("menu-open")
-      menuBtn.classList.remove("active")
-    } else if (!isMenuOpen()) {
-      hideMenu()
-    }
-  })
-}
-
 // ============ COLLECTION PARALLAX HOVER ============
 
 function initCollectionParallaxHover() {
@@ -986,7 +898,6 @@ document.addEventListener("DOMContentLoaded", () => {
   updateWishlistCount()
   updateWishlistModal()
   updateWishlistButtons()
-  initMobileMenu()
   
   // Initialize testimonials hero animation
   const testimonialsHero = document.querySelector(".testimonials-hero")
